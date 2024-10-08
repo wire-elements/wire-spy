@@ -1,0 +1,26 @@
+{
+    "name": "wire-elements/wire-spy",
+    "description": "Devtools for Livewire",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "WireElements\\WireSpy\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Philo Hermans",
+            "email": "me@philo.dev"
+        }
+    ],
+    "require": {
+        "livewire/livewire": "^v3.0.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WireElements\\WireSpy\\WireSpyServiceProvider"
+            ]
+        }
+    }
+}

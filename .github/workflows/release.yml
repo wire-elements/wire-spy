@@ -1,0 +1,43 @@
+name: Create Release Candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number for the release'
+        required: true
+
+jobs:
+  create-release-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies and build
+        run: |
+          npm install
+          npm run build
+
+      - name: Remove specified folders and files
+        run: |
+          rm -rf node_modules .github resources/css resources/js
+          rm -f build.js package.json package-lock.json postcss.config.js tailwind.config.js
+
+      - name: Create and switch to release-candidate branch
+        run: |
+          git config --global user.email "github-actions@wire-elements.dev"
+          git config --global user.name "GitHub Actions"
+          git checkout -b release-candidate
+          git add -A
+          git commit -m "Create release candidate for version ${{ github.event.inputs.version }}"
+          git push origin release-candidate
+
+      - name: Create and push tag
+        run: |
+          git tag ${{ github.event.inputs.version }}
+          git push origin ${{ github.event.inputs.version }}
+
+      - name: Delete release-candidate branch
+        run: |
+          git push origin --delete release-candidate
