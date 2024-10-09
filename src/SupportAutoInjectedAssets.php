@@ -61,6 +61,6 @@ class SupportAutoInjectedAssets extends ComponentHook
             return false;
         }
 
-        return true;
+        return false;
     }
 }
