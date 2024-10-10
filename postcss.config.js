@@ -8,7 +8,7 @@ module.exports = {
         autoprefixer: {},
         'postcss-prefix-selector': {
             prefix: '.wire-spy ',
-            exclude: [':root', 'body', 'html', /^\.wire-spy/],
+            exclude: [':root', 'html', /^\.wire-spy/],
         },
         cssnano: {},
     }
