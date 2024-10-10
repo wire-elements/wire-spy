@@ -1,7 +1,7 @@
-<div x-data="wireSpy" x-on:keydown.window.prevent.super.l="show = !show" x-cloak :style="show ? `height: ${height}px;` : `height: 0`;" :class="isResizing ? '' : 'transition-all'" class="font-sans antialiased fixed z-[99999999] flex flex-col inset bottom-0 w-full bg-zinc-900 rounded-t-lg text-gray-300">
+<div x-data="wireSpy" x-on:keydown.window.prevent.super.l="show = !show" x-cloak :style="show ? `height: ${height}px;` : `height: 0`;" :class="isResizing ? '' : 'transition-all'" class="font-sans antialiased fixed z-[99999999] flex flex-col inset-x-0 bottom-0 w-full bg-zinc-900 rounded-t-lg text-gray-300">
     @include('wire-spy::navbar')
 
-    <div class="flex flex-1 overflow-hidden">
+    <div class="flex overflow-hidden flex-1">
         @include('wire-spy::tabs.components')
         @include('wire-spy::tabs.requests')
         @include('wire-spy::tabs.events')
