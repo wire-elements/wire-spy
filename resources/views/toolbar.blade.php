@@ -1,4 +1,4 @@
-<div x-data="wireSpy" x-on:keydown.window.prevent.super.l="show = !show" x-cloak :style="show ? `height: ${height}px;` : `height: 0`;" :class="isResizing ? '' : 'transition-all'" class="font-sans antialiased fixed z-[99999999] flex flex-col inset left-0 bottom-0 w-full bg-zinc-900 rounded-t-lg text-gray-300">
+<div x-data="wireSpy" x-on:keydown.window.prevent.ctrl.l="show = !show" x-on:keydown.window.prevent.super.l="show = !show" x-cloak :style="show ? `height: ${height}px;` : `height: 0`;" :class="isResizing ? '' : 'transition-all'" class="font-sans antialiased fixed z-[99999999] flex flex-col inset left-0 bottom-0 w-full bg-zinc-900 rounded-t-lg text-gray-300">
     @include('wire-spy::navbar')
 
     <div class="flex flex-1 overflow-hidden">
