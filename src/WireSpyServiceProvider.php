@@ -8,12 +8,19 @@ use Livewire\Livewire;
 
 class WireSpyServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
+        $this->registerPackageConfig();
         $this->registerLivewireComponent();
         $this->registerBladeViews();
         $this->registerLivewireComponentHooks();
         $this->registerHotReloadRoute();
+    }
+
+    private function registerPackageConfig(): void
+    {
+        $this->mergeConfigFrom(__DIR__.'/config/wire-spy.php', 'wire-spy');
+        $this->publishes([__DIR__.'/config/wire-spy.php' => config_path('wire-spy.php'),], 'wire-spy-config');
     }
 
     private function registerLivewireComponent(): void

@@ -20,3 +20,12 @@ composer require wire-elements/wire-spy --dev
 
 ## Usage
 Use `CMD+L` or `CTRL+L` on your keyboard to toggle WireSpy.
+
+## Configuration
+To change the keybinding, publish the configuration file, run:
+
+```shell
+php artisan vendor:publish --tag=wire-spy-config
+```
+
+
