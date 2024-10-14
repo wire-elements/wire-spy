@@ -11,11 +11,13 @@ class WireSpyServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        if (App::runningUnitTests()) {
+
+        $this->registerPackageConfig();
+
+        if (!$this->app['config']->get('wire-spy.enabled')) {
             return;
         }
-        
-        $this->registerPackageConfig();
+
         $this->registerLivewireComponent();
         $this->registerBladeViews();
         $this->registerLivewireComponentHooks();

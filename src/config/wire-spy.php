@@ -10,4 +10,6 @@ return [
     * - Combine with other keys using dot notation, like 'super.l' for 'Cmd+L' or 'Ctrl+L'.
     */
     'keybinding' => 'super.l',
+
+    'enabled' => env('WIRESPY_ENABLED', true),
 ];

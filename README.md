@@ -28,4 +28,7 @@ To change the keybinding, publish the configuration file, run:
 php artisan vendor:publish --tag=wire-spy-config
 ```
 
-
+If you want to disable wire-spy, add the folowing line to your .env file:
+```dotenv
+WIRESPY_ENABLED=false
+```
