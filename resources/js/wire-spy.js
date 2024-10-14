@@ -111,6 +111,7 @@ document.addEventListener('alpine:init', () => {
                     // Next we map over each commit and the component object for easy reference.
                     .map(commit => commit.effects.dispatches.map(dispatch => ({
                         ...dispatch,
+                        id: this.randomId(),
                         commitId: commit.id,
                         component: this.getComponentById(commit.componentId),
                     })))
