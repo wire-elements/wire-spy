@@ -13,7 +13,7 @@
                 </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-800">
-                <template x-for="(event, index) in getEvents()" x-bind:key="`${event.commitId}-${index}`">
+                <template x-for="event in getEvents()" :id="$id('wire-spy-event-commit-id')">
                     <tr>
                         <td class="whitespace-nowrap align-top py-4 pl-4 pr-3 text-sm text-white" x-text="event.name"></td>
                         <td class="whitespace-nowrap align-top py-4 pl-4 pr-3 text-sm text-white">
