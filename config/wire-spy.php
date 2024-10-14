@@ -3,8 +3,9 @@
 return [
     /*
      * Enable or disable WireSpy.
+     * By default, WireSpy will only be enabled in your development environment.
      */
-    'enabled' => env('WIRESPY_ENABLED', true),
+    'enabled' => env('WIRESPY_ENABLED'),
     
     /**
     * The keybinding configuration option allows you to define a keyboard shortcut
