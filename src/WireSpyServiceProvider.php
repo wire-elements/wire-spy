@@ -25,8 +25,8 @@ class WireSpyServiceProvider extends ServiceProvider
 
     private function registerPackageConfig(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/config/wire-spy.php', 'wire-spy');
-        $this->publishes([__DIR__.'/config/wire-spy.php' => config_path('wire-spy.php'),], 'wire-spy-config');
+        $this->mergeConfigFrom(__DIR__.'/../config/wire-spy.php', 'wire-spy');
+        $this->publishes([__DIR__.'/../config/wire-spy.php' => config_path('wire-spy.php'),], 'wire-spy-config');
     }
 
     private function registerLivewireComponent(): void
