@@ -1,6 +1,11 @@
 <?php
 
 return [
+    /*
+     * Enable or disable WireSpy.
+     */
+    'enabled' => env('WIRESPY_ENABLED', true),
+    
     /**
     * The keybinding configuration option allows you to define a keyboard shortcut
     * using AlpineJS syntax. It accepts a string representing the desired key combination.
@@ -10,6 +15,4 @@ return [
     * - Combine with other keys using dot notation, like 'super.l' for 'Cmd+L' or 'Ctrl+L'.
     */
     'keybinding' => 'super.l',
-
-    'enabled' => env('WIRESPY_ENABLED', true),
 ];
