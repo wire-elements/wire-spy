@@ -2,6 +2,7 @@
 
 namespace WireElements\WireSpy;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
@@ -10,6 +11,10 @@ class WireSpyServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
+        if (App::runningUnitTests()) {
+            return;
+        }
+        
         $this->registerPackageConfig();
         $this->registerLivewireComponent();
         $this->registerBladeViews();
