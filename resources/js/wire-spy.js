@@ -33,6 +33,22 @@ document.addEventListener('alpine:init', () => {
                 this.registerKeybindings()
                 this.registerCommitListener()
                 this.registerHotReloadHandler()
+                this.registerWatchers()
+                this.offsetToolbarHeight()
+            },
+
+            /**
+             * Register property watchers.
+             *
+             * @return void
+             */
+            registerWatchers() {
+                this.$watch('height', () => {
+                    this.offsetToolbarHeight()
+                })
+                this.$watch('show', () => {
+                    this.offsetToolbarHeight()
+                })
             },
 
             /**
@@ -419,6 +435,19 @@ document.addEventListener('alpine:init', () => {
                 }
 
                 callback()
+            },
+
+            /**
+             * Offset the body padding to accommodate the toolbar height.
+             *
+             * @return void
+             */
+            offsetToolbarHeight() {
+                if(this.show) {
+                    document.body.style.paddingBottom = `${this.height}px`
+                } else {
+                    document.body.style.paddingBottom = ''
+                }
             },
 
             /**
