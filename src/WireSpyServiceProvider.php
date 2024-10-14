@@ -2,7 +2,6 @@
 
 namespace WireElements\WireSpy;
 
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
@@ -24,7 +23,7 @@ class WireSpyServiceProvider extends ServiceProvider
     private function registerPackageConfig(): void
     {
         $this->mergeConfigFrom(__DIR__.'/../config/wire-spy.php', 'wire-spy');
-        $this->publishes([__DIR__.'/../config/wire-spy.php' => config_path('wire-spy.php'),], 'wire-spy-config');
+        $this->publishes([__DIR__.'/../config/wire-spy.php' => config_path('wire-spy.php')], 'wire-spy-config');
     }
 
     private function registerLivewireComponent(): void
@@ -50,7 +49,7 @@ class WireSpyServiceProvider extends ServiceProvider
 
     private function wireSpyIsEnabled(): bool
     {
-        if(config('wire-spy.enabled') === null) {
+        if (config('wire-spy.enabled') === null) {
             return app()->isLocal();
         }
 
