@@ -8,8 +8,11 @@
             Enable hot reload
         </button>
     </div>
-    <div x-show="hotReload" class="inline-block min-w-full py-2 align-middle">
-        <table class="min-w-full divide-y divide-gray-700">
+    <div x-show="!hotReloadEvents.length && hotReload" class="flex w-full justify-center items-center text-slate-500 text-sm">
+        Waiting for file changes
+    </div>
+    <div x-show="hotReload && hotReloadEvents.length" class="inline-block min-w-full py-2 align-middle">
+        <table x-show="hotReloadEvents.length" class="min-w-full divide-y divide-gray-700">
             <thead>
             <tr>
                 <th scope="col" class="py-2 pl-4 pr-3 text-left text-sm font-semibold">Changed File</th>
