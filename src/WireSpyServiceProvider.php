@@ -11,10 +11,9 @@ class WireSpyServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-
         $this->registerPackageConfig();
 
-        if (!$this->app['config']->get('wire-spy.enabled')) {
+        if ($this->wireSpyIsDisabled()) {
             return;
         }
 
@@ -49,5 +48,10 @@ class WireSpyServiceProvider extends ServiceProvider
     private function registerHotReloadRoute(): void
     {
         Route::get('/wire-spy/hot-reload', [SupportHotReloading::class, 'route']);
+    }
+
+    private function wireSpyIsDisabled(): bool
+    {
+        return App::runningUnitTests() || config('wire-spy.enabled') === false;
     }
 }
