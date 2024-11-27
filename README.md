@@ -28,6 +28,14 @@ To change the keybinding, publish the configuration file by running:
 php artisan vendor:publish --tag=wire-spy-config
 ```
 
+Then, edit the `wire-spy.php` file in `config/wire-spy.php` to change the keybinding.
+
+In a shared repoository where the keybding may need differ between developers, you can override the keybinding by setting an environment variable:, e.g.:
+
+```dotenv
+WIRE_SPY_KEYBINDING="ctrl.shift.y"
+```
+
 By default, WireSpy is enabled only in your `local` environment. You can override this in `config/wire-spy.php` or by setting an environment variable:
 
 ```dotenv
