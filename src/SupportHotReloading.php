@@ -109,7 +109,7 @@ class SupportHotReloading extends ComponentHook
                     $filesByTime[$file] = $time;
                 }
 
-                usleep(250);
+                usleep(250000);
 
                 // Every 5 seconds we send a ping to keep the connection alive
                 if (! $lastPing || microtime(true) > ($lastPing + 5)) {
