@@ -147,7 +147,7 @@ class SupportHotReloading extends ComponentHook
             File::put($path, json_encode([]));
         }
 
-        return json_decode(File::get($path), true);
+        return json_decode(File::get($path), true) ?? [];
     }
 
     protected function putCache($cache): void
