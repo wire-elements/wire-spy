@@ -34,7 +34,7 @@ class SupportAutoInjectedAssets extends ComponentHook
 
                 $assetsHead .= sprintf('<style>%s</style>', file_get_contents(base_path('vendor/wire-elements/wire-spy/dist/wire-spy.min.css')))."\n";
                 $assetsBody .= sprintf('<script src="/livewire/wire-spy.min.js?id=%s"></script>', $cacheId)."\n";
-                $assetsBody .= Blade::render('<div class="wire-spy"><livewire:wire-spy /></div>');
+                $assetsBody .= Blade::render('<div dir="ltr" class="wire-spy"><livewire:wire-spy /></div>');
             }
 
             if ($assetsHead === '' && $assetsBody === '') {
