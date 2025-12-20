@@ -34,7 +34,17 @@ class SupportAutoInjectedAssets extends ComponentHook
 
                 $assetsHead .= sprintf('<style>%s</style>', file_get_contents(base_path('vendor/wire-elements/wire-spy/dist/wire-spy.min.css')))."\n";
                 $assetsBody .= sprintf('<script src="/livewire/wire-spy.min.js?id=%s"></script>', $cacheId)."\n";
-                $assetsBody .= Blade::render('<div class="wire-spy"><livewire:wire-spy /></div>');
+                if (static::shouldInjectWireSpyTriggerButton()) {
+                    $assetsBody .= view('wire-spy::trigger')->render() . "\n";
+                }
+                $assetsBody .= Blade::render('
+                    <div class="wire-spy-root">
+                        <div id="wire-spy-trigger"></div>
+                        <div class="wire-spy">
+                            <livewire:wire-spy />
+                        </div>
+                    </div>
+                ');
             }
 
             if ($assetsHead === '' && $assetsBody === '') {
@@ -62,5 +72,11 @@ class SupportAutoInjectedAssets extends ComponentHook
         }
 
         return false;
+    }
+
+    protected static function shouldInjectWireSpyTriggerButton(): bool
+    {
+        return static::shouldInjectWireSpyAssets() 
+            && config('wire-spy.button_enabled');
     }
 }

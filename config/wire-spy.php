@@ -16,4 +16,12 @@ return [
      * - Combine with other keys using dot notation, like 'super.l' for 'Cmd+L' or 'Ctrl+L'.
      */
     'keybinding' => 'super.l',
+
+
+    /**
+     * By default WireSpy can only be triggered by keyboard shortcuts.
+     * If you need to trigger the panel's visibility by a button either set the WIRE_SPY_BUTTON_ENABLED to true
+     * in your .env file or publish the config file and set the value to true.
+     */
+    'button_enabled' => env('WIRE_SPY_BUTTON_ENABLED', false),
 ];
